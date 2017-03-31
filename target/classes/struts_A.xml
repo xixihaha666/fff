@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+	<struts>
+	
+		<package name="struts4" namespace="/A" extends="struts-default">
+		<interceptors>
+		<interceptor name="MyInterceptor" class="com.woniu.struts4.MyInterceptor"/>
+		
+		<interceptor-stack name="My">
+		<interceptor-ref name="defaultStack"/>
+		<interceptor-ref name="MyInterceptor"/>
+		</interceptor-stack>
+		</interceptors>
+		
+	
+		
+		
+		<action name="second" class="com.woniu.struts4.UserAction" method="second">
+		<interceptor-ref name="My"/>
+		<result name="second">/sucssful.jsp</result>
+		<result name="fail">/fail.jsp</result>
+		</action>
+		
+	</package>
+		
+		
+
+	</struts>
